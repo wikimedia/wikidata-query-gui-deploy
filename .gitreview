@@ -1,6 +1,6 @@
 [gerrit]
 host=gerrit.wikimedia.org
 port=29418
-project=wikidata/query/gui.git
+project=wikidata/query/gui-deploy.git
 defaultbranch=master
 defaultrebase=0
