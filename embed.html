@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Wikidata Query Service (Beta)</title>
+
+<link rel="stylesheet" href="css/embed.style.min.dca795ddaee000ed01ac.css">
+<link rel="shortcut icon" href="//www.wikidata.org/static/favicon/testwikidata.ico">
+<script src="js/shim.min.d1421fd3535f8c49c96c.js"></script>
+</head>
+<body>
+
+	<div id="progress" class="progress">
+		<div class="progress-bar progress-bar-info
+                   progress-bar-striped active" style="width: 100%">Loading</div>
+	</div>
+	<div id="error" class="progress" style="display: none;">
+		<div class="progress-bar progress-bar-danger" style="width: 100%">Error</div>
+	</div>
+
+	<div id="result"></div>
+	<a class="link" target="_blank" style="position: fixed; bottom: 0px; left: 0px; padding: 0px 2px 0px 2px; background-color: rgba(255, 255, 255, 0.7);"><small>Wikidata.org</small></a>
+
+	<!-- JS files -->
+	<script src="js/embed.vendor.min.cc4299532c86cbd0291c.js"></script>
+
+	<script src="js/embed.wdqs.min.f48fb041a80206fe1d07.js"></script>
+
+	<script type="text/javascript">
+		var RESULT_BROWSER = {
+			Table: {
+				class: 'TableResultBrowser'
+			},
+			ImageGrid: {
+				class: 'ImageResultBrowser'
+			},
+			Map: {
+				class: 'CoordinateResultBrowser'
+			},
+			BubbleChart: {
+				class: 'BubbleChartResultBrowser'
+			},
+			TreeMap: {
+				class: 'TreeMapResultBrowser'
+			},
+			Timeline: {
+				class: 'TimelineResultBrowser'
+			},
+			Dimensions: {
+				class: 'MultiDimensionResultBrowser'
+			},
+			Graph: {
+				class: 'GraphResultBrowser'
+			}
+		};
+
+		$( document ).ready( function() {
+			$( '.link' ).attr( 'href', 'https://query.wikidata.org/' + window.location.hash )
+
+			var query = decodeURIComponent( window.location.hash.substr( 1 ) );
+			var browserPackage = wikibase.queryService.ui.resultBrowser;
+
+			try {
+				var browserClass = RESULT_BROWSER[query.match( /\#defaultView:(.*)/ )[1]].class;
+				var browser = new browserPackage[browserClass]();
+			} catch ( e ) {
+				var browserClass = RESULT_BROWSER.Table.class;
+				var browser = new browserPackage[browserClass]();
+			}
+
+			var api = new wikibase.queryService.api.Sparql();
+			api.query( query ).done( function() {
+				try {
+					browser.setResult( api.getResultRawData() );
+					browser.draw( $( '#result' ) );
+					$( '#progress' ).hide();
+
+				} catch ( e ) {
+					$( '#progress' ).hide();
+					$( '#error' ).show();
+				}
+			} ).fail( function() {
+				$( '#progress' ).hide();
+				$( '#error' ).show();
+			} );
+
+		} );
+	</script>
+</body>
+</html>
