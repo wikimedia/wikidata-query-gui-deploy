@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Wikidata Query Service (Beta)</title>
 
-<link rel="stylesheet" href="css/embed.style.min.be7a70eb2e706218e6e4.css">
+<link rel="stylesheet" href="css/embed.style.min.549cc24a4a1aa4ce4bd1.css">
 <link rel="shortcut icon" href="//www.wikidata.org/static/favicon/testwikidata.ico">
 <script src="js/shim.min.d1421fd3535f8c49c96c.js"></script>
 </head>
@@ -31,7 +31,7 @@
 	<!-- JS files -->
 	<script src="js/embed.vendor.min.cc4299532c86cbd0291c.js"></script>
 
-	<script src="js/embed.wdqs.min.79a20fb3a4402e33d49a.js"></script>
+	<script src="js/embed.wdqs.min.6d467e3ff21ab5b07fc5.js"></script>
 
 	<script type="text/javascript">
 		var RESULT_BROWSER = {
@@ -68,7 +68,7 @@
 			var browserPackage = wikibase.queryService.ui.resultBrowser;
 
 			try {
-				var browserClass = RESULT_BROWSER[query.match( /\#defaultView:(.*)/ )[1]].class;
+				var browserClass = RESULT_BROWSER[query.match( /#defaultView:(\w+)/ )[1]].class;
 				var browser = new browserPackage[browserClass]();
 			} catch ( e ) {
 				var browserClass = RESULT_BROWSER.Table.class;
