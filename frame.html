@@ -1,0 +1,37 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Insert title here</title></head><body><script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script><script src="node_modules/d3/d3.js"></script><script src="node_modules/leaflet/dist/leaflet.js"></script><script src="node_modules/underscore/underscore.js"></script><link rel="stylesheet" href="node_modules/leaflet/dist/leaflet.css"><script type="text/javascript">/* var jQuery = jQuery || $ || null,
+	download = download || null,
+	_ = _ || null,
+	Cookies = Cookies || null,
+	moment = moment || null,
+	CodeMirror = CodeMirror || null,
+	sparqljs = sparqljs || null,
+	d3 = d3 || null,
+	dimple = dimple || null,
+	L = L || null,
+	vis = vis || null; */</script><script type="text/javascript" src="dist/js/wdqs.min.js"></script><div id="result"></div><script type="text/javascript">var query = '\
+SELECT ?item ?itemLabel ?length ?pic ?location \
+WHERE \
+{ \
+  ?item wdt:P31/wdt:P279* wd:Q4022 . \
+  ?item wdt:P2043 ?length . \
+  ?item wdt:P18 ?pic . \
+  ?item wdt:P625 ?location \
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "en" . } \
+} ORDER BY DESC(?length) ?itemLabel \
+LIMIT 50 \
+';
+
+var api = new wikibase.queryService.api.Sparql();
+api.query(query).done(function() {
+  var result = new wikibase.queryService.ui.resultBrowser.CoordinateResultBrowser();
+  result.setResult(api.getResultRawData());
+  result.draw($('#result'));
+});
+
+
+var api = new wikibase.queryService.api.Sparql();
+api.query(query).done(function() {
+  var result = new wikibase.queryService.ui.resultBrowser.CoordinateResultBrowser();
+  result.setResult(api.getResultRawData());
+  result.draw($('#result'));
+});</script></body></html>
