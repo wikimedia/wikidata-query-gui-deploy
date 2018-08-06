@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en" dir="ltr"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes"><title>Wikidata Query Service</title><link rel="stylesheet" href="css/embed.style.min.763a63e3f0e89bb5e606.css"><link rel="shortcut icon" href="favicon.ico"><script src="js/shim.min.d59d3aa7becb9e282fc1.js"></script></head><style>body {
+<!DOCTYPE html><html lang="en" dir="ltr"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes"><title>Wikidata Query Service</title><link rel="stylesheet" href="css/embed.style.min.c9c2f167441d199d60a2.css"><link rel="shortcut icon" href="favicon.ico"><script src="js/shim.min.d59d3aa7becb9e282fc1.js"></script></head><style>body {
 	margin: 0;
 	padding: 0;
 	overflow-y: auto;
@@ -70,7 +70,7 @@
 	left: -97px;
 	top: 26vh;
 	padding-top: 0.5em;
-	opacity: 0.2;
+	opacity: 0.6;
 	width: 150px;
 }
 .header-toolbar:hover {
@@ -139,7 +139,7 @@
 	top: 26vh;
 	z-index: 1000;
 	padding-top: 0.5em;
-	opacity: 0.2;
+	opacity: 0.6;
 	width: 150px;
 }
 .toolbar-right:hover, .hovered {
@@ -158,6 +158,10 @@
 }
 .toolbar-right-item:focus {
 	outline: none;
+	text-decoration: none;
+}
+.toolbar-right-item:hover {
+	text-decoration: none;
 }
 
 .toolbar-right-icon {
@@ -167,6 +171,17 @@
 
 .toolbar-right-label {
 	position: absolute;
+	left: 15px;
+}
+
+.download-dropdown-menu {
+	left: -47px;
+    top: -11px;
+}
+
+.download-caret {
+	position: relative;
+	left: 60px;
 }
 
 #embed-right-menu {
@@ -182,7 +197,7 @@
 		left: -97px;
 		top: 20vh;
 		padding-top: 0.5em;
-		opacity: 0.2;
+		opacity: 0.6;
 		width: 150px;
 		height: 65vh;
 		overflow-y: scroll;
@@ -190,13 +205,22 @@
 	}
 }
 
-@media only screen and (max-height: 382px) {
+@media only screen and (max-height: 430px) {
 	#embed-right-menu {
 		list-style-type: none;
 		overflow-y: scroll;
 		overflow-x: hidden;
-		height: 60vh;
+		height: 57vh;
 		position: static;
+	}
+}
+
+@media only screen and (max-height: 450px) {
+	.download-dropdown-menu {
+		left: -50px;
+		top: -40px;
+		height: 61vh;
+		overflow-y: scroll;
 	}
 }
 
@@ -221,7 +245,7 @@
 		padding: 0px;
 	}
 
-}</style><body><div class="logo"></div><noscript><div class="row action-bar" style="display: block"><div class="message"><div class="label label-warning">Please enable JavaScript or use a browser that supports it.</div></div></div></noscript><div class="header-toolbar"><ul id="result-browser-menu"></ul></div><div class="toolbar-right"><ul id="embed-right-menu"><li><a href="#" target="_blank" rel="noopener" class="edit edit-link toolbar-right-item" data-toggle="popover"><div data-toggle="tooltip" data-i18n="[title]wdqs-embed-button-edit-query-title"><span class="glyphicon glyphicon-pencil toolbar-right-icon" aria-hidden="true"></span><span class="toolbar-right-label" data-i18n="wdqs-embed-button-edit-query"></span></div></a></li><li><a class="link edit-link toolbar-right-item" target="_blank" rel="noopener" data-i18n="[title]wdqs-embed-button-edit-code-title"><span class="glyphicon glyphicon-edit toolbar-right-icon" aria-hidden="true"></span> <span class="toolbar-right-label" data-i18n="wdqs-embed-button-edit-code"></span></a></li><li><a href="https://www.wikidata.org/wiki/Wikidata:SPARQL_query_service/Wikidata_Query_Help" target="_blank" class="toolbar-right-item"><span class="glyphicon glyphicon-question-sign toolbar-right-icon" aria-hidden="true"></span> <span class="toolbar-right-label" data-i18n="wdqs-app-button-help" id="help-label"></span></a></li><li><a class="toolbar-right-item" href="#" id="open-example" data-toggle="modal" data-target="#QueryExamples"><span class="fa fa-folder-open-o toolbar-right-icon"></span> <span class="toolbar-right-label" data-i18n="wdqs-app-button-examples" id="examples-label"></span></a></li><li><a href="#" class="shareQuery shortUrlTrigger result toolbar-right-item" target="_blank" data-i18n="[title]wdqs-app-button-link-title" data-toggle="popover"><span class="glyphicon glyphicon-link toolbar-right-icon" aria-hidden="true"></span> <span class="toolbar-right-label" data-i18n="wdqs-app-button-link"></span></a></li><li><a class="toolbar-right-item" href="#" data-toggle="modal" data-target="#CodeExamples" data-i18n="[title]wdqs-app-button-code-title"><span class="fa fa-code toolbar-right-icon"></span> <span class="toolbar-right-label" data-i18n="wdqs-app-button-code"></span></a></li></ul></div><div class="action-bar"><div class="message"></div></div><div id="query-result">Test result</div><div id="query-error" class="panel-heading">Test error</div><div id="loading-spinner"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i> <span class="sr-only">Loading...</span></div><div id="explorer-dialogs"><div class="explorer-dialog"><div data-role="header" class="modal-header clearfix explorer-header"><h3 data-role="title" class="modal-title pull-left explorer-title">Explorer</h3><button data-role="close" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div data-role="body" class="explorer-body"></div></div></div><div class="expand-type" data-toggle="tooltip" data-i18n="[title]wdqs-embed-explorer-button-outgoing"><input id="expand-type-switch" type="checkbox" data-onstyle="primary" data-size="small"></div><div class="modal fade QueryExamples" id="QueryExamples" tabindex="-1" role="dialog" aria-labelledby="QueryExamplesModalLabel"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-body"><div class="tagCloud"></div><div class="tagFilter"></div><div class="input-group"><span class="input-group-addon"><span class="glyphicon glyphicon-filter" aria-hidden="true"></span></span> <input type="text" class="tableFilter form-control" placeholder="Type to filter"> <span class="input-group-addon"><span class="badge count"></span></span></div><div class="exampleTable"><table class="table"><tbody class="searchable"></tbody></table></div></div></div></div></div><div class="modal fade CodeExamples" id="CodeExamples" tabindex="-1" role="dialog" aria-labelledby="CodeExamplesModalLabel"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-body"><div><ul class="nav nav-tabs" role="tablist"></ul><div class="tab-content"></div></div></div></div></div></div><script src="js/embed.vendor.min.d4fcd98e7b075a18e8e4.js"></script><script src="js/embed.wdqs.min.3f246b9bf1da3d79c6ef.js"></script><script type="text/javascript">function renderEdit( qh, query, $editor, callback ) {
+}</style><body><div class="logo"></div><noscript><div class="row action-bar" style="display: block"><div class="message"><div class="label label-warning">Please enable JavaScript or use a browser that supports it.</div></div></div></noscript><div class="header-toolbar"><ul id="result-browser-menu"></ul></div><div class="toolbar-right"><ul id="embed-right-menu"><li><a href="#" target="_blank" rel="noopener" class="edit edit-link toolbar-right-item" data-toggle="popover"><div data-toggle="tooltip" data-i18n="[title]wdqs-embed-button-edit-query-title"><span class="glyphicon glyphicon-pencil toolbar-right-icon" aria-hidden="true"></span><span class="toolbar-right-label" data-i18n="wdqs-embed-button-edit-query"></span></div></a></li><li><a class="link edit-link toolbar-right-item" target="_blank" rel="noopener" data-i18n="[title]wdqs-embed-button-edit-code-title"><span class="glyphicon glyphicon-edit toolbar-right-icon" aria-hidden="true"></span> <span class="toolbar-right-label" data-i18n="wdqs-embed-button-edit-code"></span></a></li><li><a href="https://www.wikidata.org/wiki/Wikidata:SPARQL_query_service/Wikidata_Query_Help" target="_blank" class="toolbar-right-item"><span class="glyphicon glyphicon-question-sign toolbar-right-icon" aria-hidden="true"></span> <span class="toolbar-right-label" data-i18n="wdqs-app-button-help" id="help-label"></span></a></li><li><a class="toolbar-right-item" href="#" id="open-example" data-toggle="modal" data-target="#QueryExamples"><span class="fa fa-folder-open-o toolbar-right-icon"></span> <span class="toolbar-right-label" data-i18n="wdqs-app-button-examples" id="examples-label"></span></a></li><li><a href="#" class="shareQuery shortUrlTrigger result toolbar-right-item" target="_blank" data-i18n="[title]wdqs-app-button-link-title" data-toggle="popover"><span class="glyphicon glyphicon-link toolbar-right-icon" aria-hidden="true"></span> <span class="toolbar-right-label" data-i18n="wdqs-app-button-link"></span></a></li><li><a class="toolbar-right-item" href="#" data-toggle="modal" data-target="#CodeExamples" data-i18n="[title]wdqs-app-button-code-title"><span class="fa fa-code toolbar-right-icon"></span> <span class="toolbar-right-label" data-i18n="wdqs-app-button-code"></span></a></li><li class="download-dropdown"><a id="download-button" href="#" class="toolbar-right-item" data-toggle="dropdown" class="dropdown-toggle" data-placement="top" data-i18n="[title]wdqs-app-button-download-title"><span class="glyphicon glyphicon-download-alt toolbar-right-icon" aria-hidden="true"></span> <span data-i18n="wdqs-app-button-download" class="toolbar-right-label"></span> <span class="dropup"><span class="caret download-caret"></span></span></a><ul class="dropdown-menu download-dropdown-menu" role="menu"><li><a id="downloadJSON" href="#"><span class="fa fa-file-code-o" aria-hidden="true"></span> <span data-i18n="wdqs-app-result-json"></span></a></li><li><a id="downloadFull-JSON" href="#"><span class="fa fa-file-code-o" aria-hidden="true"></span> <span data-i18n="wdqs-app-result-json-verbose"></span></a></li><li role="separator" class="divider"></li><li><a id="downloadSimple-TSV" href="#"><span class="fa fa-file-excel-o" aria-hidden="true"></span> <span data-i18n="wdqs-app-result-tsv"></span></a></li><li><a id="downloadTSV" href="#"><span class="fa fa-file-excel-o" aria-hidden="true"></span> <span data-i18n="wdqs-app-result-tsv-verbose"></span></a></li><li role="separator" class="divider"></li><li><a id="downloadCSV" href="#"><span class="fa fa-file-excel-o" aria-hidden="true"></span> <span data-i18n="wdqs-app-result-csv"></span></a></li><li role="separator" class="divider"></li><li><a id="downloadHTML" href="#"><span class="fa fa-file-code-o" aria-hidden="true"></span> <span data-i18n="wdqs-app-result-html"></span></a></li><li role="separator" class="divider"></li><li><a id="downloadSVG" href="#"><span class="fa fa-file-image-o" aria-hidden="true"></span> <span data-i18n="wdqs-app-result-svg"></span></a></li></ul></li></ul></div><div class="action-bar"><div class="message"></div></div><div id="query-result">Test result</div><div id="query-error" class="panel-heading">Test error</div><div id="loading-spinner"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i> <span class="sr-only">Loading...</span></div><div id="explorer-dialogs"><div class="explorer-dialog"><div data-role="header" class="modal-header clearfix explorer-header"><h3 data-role="title" class="modal-title pull-left explorer-title">Explorer</h3><button data-role="close" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div data-role="body" class="explorer-body"></div></div></div><div class="expand-type" data-toggle="tooltip" data-i18n="[title]wdqs-embed-explorer-button-outgoing"><input id="expand-type-switch" type="checkbox" data-onstyle="primary" data-size="small"></div><div class="modal fade QueryExamples" id="QueryExamples" tabindex="-1" role="dialog" aria-labelledby="QueryExamplesModalLabel"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-body"><div class="tagCloud"></div><div class="tagFilter"></div><div class="input-group"><span class="input-group-addon"><span class="glyphicon glyphicon-filter" aria-hidden="true"></span></span> <input type="text" class="tableFilter form-control" placeholder="Type to filter"> <span class="input-group-addon"><span class="badge count"></span></span></div><div class="exampleTable"><table class="table"><tbody class="searchable"></tbody></table></div></div></div></div></div><div class="modal fade CodeExamples" id="CodeExamples" tabindex="-1" role="dialog" aria-labelledby="CodeExamplesModalLabel"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-body"><div><ul class="nav nav-tabs" role="tablist"></ul><div class="tab-content"></div></div></div></div></div></div><script src="js/embed.vendor.min.b6baec01c7ab6ba6c6b4.js"></script><script src="js/embed.wdqs.min.8cdf6befcbc5f7f18d95.js"></script><script type="text/javascript">function renderEdit( qh, query, $editor, callback ) {
 			qh.setChangeListener( _.debounce( function( v ) {
 				callback( v.getQuery() );
 			}, 1500 ) );
@@ -301,12 +325,6 @@
 					$( '.toolbar-label' ).css( 'display', 'none' );
 			});
 
-			$( '.toolbar-right .hovered' ).hover( function() {
-				$( '.toolbar-right-label' ).css( 'display', 'inline-block' );
-				}, function() {
-					$( '.toolbar-right-label' ).css( 'display', 'none' );
-			});
-
 			$( window ).on( 'hashchange', function( e ) {
 				$( '.edit-link' ).attr( 'href', config.location.index + window.location.hash );
 				query = decodeURIComponent( window.location.hash.substr( 1 ) );
@@ -322,5 +340,13 @@
 					'html': true,
 					'content': $editor,
 			});
+
+			$('.download-dropdown').on( 'show.bs.dropdown', function () {
+				$( '.toolbar-right' ).toggleClass( 'hovered' );
+			})
+
+			$('.download-dropdown').on( 'hide.bs.dropdown', function () {
+				$( '.toolbar-right' ).toggleClass( 'hovered' );
+			})
 
 		} );</script></body></html>
