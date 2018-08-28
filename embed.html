@@ -152,6 +152,7 @@
 	background: #fff;
 	border: #ddd 1px solid;
 	right: 0;
+	z-index: 5000;
 }
 
 .toolbar-right-item {
@@ -358,9 +359,11 @@
 
 			initToolbarVisibilityHandler();
 			$( '.header-toolbar' ).hover( function() {
+				$( '.header-toolbar' ).addClass( 'hovered' );
 				$( '.toolbar-label' ).css( 'display', 'block' );
 				}, function() {
 					$( '.toolbar-label' ).css( 'display', 'none' );
+					$( '.header-toolbar' ).removeClass( 'hovered' );
 			});
 
 			$( window ).on( 'hashchange', function( e ) {
