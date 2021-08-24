@@ -1,0 +1,4 @@
+Contains additional files to be served from the root of specific sites. Requires specific
+web server configuration to map from domain to the appropriate assets directory.
+
+wdqs - query.wikidata.org
