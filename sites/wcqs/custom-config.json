@@ -1,0 +1,19 @@
+{
+  "api": {
+    "sparql": {
+      "uri": "/sparql"
+    },
+    "urlShortener": "wmf"
+  },
+  "brand": {
+    "logo": "logo.svg",
+    "favicon": "favicon.ico",
+    "title": "Wikimedia Commons Query Service",
+    "copyrightUrl": "https://www.wikidata.org/wiki/Special:MyLanguage/Wikidata:SPARQL_query_service/Copyright"
+  },
+  "location": {
+    "root": "https://commons-query.wikimedia.org/",
+    "index": "https://commons-query.wikimedia.org/"
+  },
+  "showBanner": true
+}

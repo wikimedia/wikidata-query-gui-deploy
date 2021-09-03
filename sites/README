@@ -2,3 +2,4 @@ Contains additional files to be served from the root of specific sites. Requires
 web server configuration to map from domain to the appropriate assets directory.
 
 wdqs - query.wikidata.org
+wcqs - commons-query.wikimedia.org
