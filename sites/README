@@ -1,0 +1,11 @@
+Contains additional files to be served from the root of specific sites. Requires specific
+web server configuration to map from domain to the appropriate assets directory.
+
+wdqs - query.wikidata.org
+wcqs - commons-query.wikimedia.org
+
+Original files and credits:
+
+wdqs/favicon.ico: https://commons.wikimedia.org/wiki/File:Wikidata_Query_Service_Favicon.svg
+wcqs/favicon.ico: https://commons.wikimedia.org/wiki/File:Wikimedia_Commons_Query_Service_Logo.svg
+wcqs/logo.png: https://commons.wikimedia.org/wiki/File:Commons-logo.png
