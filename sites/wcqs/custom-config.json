@@ -15,7 +15,7 @@
     "urlShortener": "wmf"
   },
   "brand": {
-    "title": "Wikimedia Commons Query Service",
+    "title": "Wikimedia Commons Query Service (beta)",
     "logo": "https://commons-query.wikimedia.org/logo.png",
     "favicon": "favicon.ico",
     "copyrightUrl": "https://www.wikidata.org/wiki/Special:MyLanguage/Wikidata:SPARQL_query_service/Copyright"
