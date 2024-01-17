@@ -1,0 +1,19 @@
+{
+  "api": {
+    "sparql": {
+      "uri": "/sparql"
+    },
+    "urlShortener": "wmf"
+  },
+  "brand": {
+    "logo": "logo.svg",
+    "favicon": "favicon.ico",
+    "title": "EXPERIMENTAL - WDQS scholarly articles graph",
+    "copyrightUrl": "https://www.wikidata.org/wiki/Special:MyLanguage/Wikidata:SPARQL_query_service/Copyright"
+  },
+  "location": {
+    "root": "https://scholarly-experimental.query.wikidata.org/",
+    "index": "https://scholarly-experimental.query.wikidata.org/"
+  },
+  "showBanner": true
+}
