@@ -12,8 +12,8 @@
     "copyrightUrl": "https://www.wikidata.org/wiki/Special:MyLanguage/Wikidata:SPARQL_query_service/Copyright"
   },
   "location": {
-    "root": "https://main-experimental.query.wikidata.org/",
-    "index": "https://main-experimental.query.wikidata.org/"
+    "root": "https://query-main-experimental.wikidata.org/",
+    "index": "https://query-main-experimental.wikidata.org/"
   },
   "showBanner": true
 }
