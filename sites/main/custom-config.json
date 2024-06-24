@@ -1,0 +1,19 @@
+{
+  "api": {
+    "sparql": {
+      "uri": "/sparql"
+    },
+    "urlShortener": "wmf"
+  },
+  "brand": {
+    "logo": "logo.svg",
+    "favicon": "favicon.ico",
+    "title": "WDQS full graph",
+    "copyrightUrl": "https://www.wikidata.org/wiki/Special:MyLanguage/Wikidata:SPARQL_query_service/Copyright"
+  },
+  "location": {
+    "root": "https://query-main.wikidata.org/",
+    "index": "https://query-main.wikidata.org/"
+  },
+  "showBanner": true
+}
