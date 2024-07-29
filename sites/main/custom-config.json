@@ -8,7 +8,7 @@
   "brand": {
     "logo": "logo.svg",
     "favicon": "favicon.ico",
-    "title": "WDQS full graph",
+    "title": "WDQS main graph",
     "copyrightUrl": "https://www.wikidata.org/wiki/Special:MyLanguage/Wikidata:SPARQL_query_service/Copyright"
   },
   "location": {
