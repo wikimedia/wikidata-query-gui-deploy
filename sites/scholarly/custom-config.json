@@ -15,6 +15,5 @@
     "root": "https://query-scholarly.wikidata.org/",
     "index": "https://query-scholarly.wikidata.org/"
   },
-  "bannerName": "",
-  "showBanner": false
+  "bannerName": ""
 }
