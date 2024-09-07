@@ -15,5 +15,6 @@
     "root": "https://query-main.wikidata.org/",
     "index": "https://query-main.wikidata.org/"
   },
-  "showBanner": true
+  "bannerName": "",
+  "showBanner": false
 }
